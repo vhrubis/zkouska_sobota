@@ -1,0 +1,258 @@
+:root {
+  /* Stredne tmava modra paleta */
+  --bg:        #1c2c4c;
+  --bg-2:      #223457;
+  --panel:     #283d66;
+  --panel-2:   #2f4675;
+  --panel-hi:  #38528a;
+  --line:      #3a5286;
+  --text:      #eaf0fb;
+  --muted:     #a9bbd8;
+  --accent:    #5b9bff;
+  --accent-2:  #7db4ff;
+
+  /* Kategorie */
+  --c-vhodne:   #3fcf6b;
+  --c-nevhodne: #ff6b6b;
+  --c-fve:      #4db5ff;
+  --c-prumysl:  #ffb84d;
+  --c-nejista:  #b08bff;
+
+  --radius:   16px;
+  --radius-s: 10px;
+  --gap:      22px;
+  --shadow:   0 6px 20px rgba(0,0,0,.28);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* ---------- HLAVICKA ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(180deg, var(--bg-2), var(--bg));
+  border-bottom: 1px solid var(--line);
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow);
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand .logo {
+  width: 46px; height: 46px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), #2f6fd6);
+  display: grid; place-items: center;
+  font-weight: 800; font-size: 15px; letter-spacing: .5px;
+  box-shadow: 0 4px 12px rgba(91,155,255,.35);
+}
+.brand .name { font-size: 20px; font-weight: 700; }
+.brand .tag  { font-size: 12.5px; color: var(--muted); margin-top: -2px; }
+
+.header .spacer { flex: 1; }
+
+.city-picker { display: flex; align-items: center; gap: 10px; }
+.city-picker label { font-size: 13px; color: var(--muted); }
+select, input[type="text"] {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: 10px 14px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+select:hover, input[type="text"]:hover { border-color: var(--accent); }
+select:focus, input[type="text"]:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(91,155,255,.2); }
+
+/* ---------- HERO / PREHLED ---------- */
+.hero {
+  padding: 30px 32px 8px;
+}
+.hero h1 { margin: 0 0 4px; font-size: 26px; }
+.hero .sub { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--gap);
+  margin-bottom: 10px;
+}
+.kpi {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.kpi .big { font-size: 30px; font-weight: 800; }
+.kpi .lbl { font-size: 13px; color: var(--muted); }
+.kpi .bar { height: 6px; border-radius: 99px; background: rgba(255,255,255,.1); overflow: hidden; margin-top: 6px; }
+.kpi .bar > span { display: block; height: 100%; border-radius: 99px; }
+
+.dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+.c-vhodne   { color: var(--c-vhodne); }   .bg-vhodne   { background: var(--c-vhodne); }
+.c-nevhodne { color: var(--c-nevhodne); } .bg-nevhodne { background: var(--c-nevhodne); }
+.c-fve      { color: var(--c-fve); }      .bg-fve      { background: var(--c-fve); }
+.c-prumysl  { color: var(--c-prumysl); }  .bg-prumysl  { background: var(--c-prumysl); }
+.c-nejista  { color: var(--c-nejista); }  .bg-nejista  { background: var(--c-nejista); }
+
+.progress-wrap {
+  margin: 18px 0 4px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 22px;
+  display: flex; align-items: center; gap: 18px;
+}
+.progress-wrap .ptxt { font-size: 13.5px; color: var(--muted); white-space: nowrap; }
+.progress-bar { flex: 1; height: 10px; border-radius: 99px; background: rgba(255,255,255,.1); overflow: hidden; }
+.progress-bar > span { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), var(--c-vhodne)); border-radius: 99px; transition: width .3s; }
+
+/* ---------- ZALOZKY (SLOZKY) ---------- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 22px 32px 6px;
+}
+.tab {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 11px 18px;
+  font-size: 14px;
+  color: var(--text);
+  cursor: pointer;
+  display: flex; align-items: center; gap: 9px;
+  transition: background .15s, border-color .15s, transform .1s;
+}
+.tab:hover { background: var(--panel-hi); transform: translateY(-1px); }
+.tab.active { background: var(--panel-2); border-color: var(--accent); box-shadow: 0 0 0 2px rgba(91,155,255,.25) inset; }
+.tab .badge {
+  background: rgba(255,255,255,.14);
+  border-radius: 99px;
+  padding: 2px 9px;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.tab.sep { background: transparent; border: none; pointer-events: none; color: var(--muted); padding-left: 4px; padding-right: 4px; align-self: center; }
+
+/* ---------- OVLADANI (search/sort/export) ---------- */
+.toolbar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+  padding: 14px 32px 6px;
+}
+.toolbar .grow { flex: 1; min-width: 200px; }
+.btn {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  color: var(--text);
+  padding: 10px 16px;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, transform .1s;
+}
+.btn:hover { background: var(--panel-hi); border-color: var(--accent); transform: translateY(-1px); }
+.btn.ghost { background: transparent; }
+
+/* ---------- MRIZKA KARET ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: var(--gap);
+  padding: 18px 32px 40px;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .12s, box-shadow .12s, border-color .12s;
+}
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--accent); }
+.card .thumb {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-2);
+}
+.card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card .tag-corner {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(14,22,40,.82);
+  border-radius: 99px;
+  padding: 5px 12px;
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; gap: 7px;
+  backdrop-filter: blur(3px);
+}
+.card .body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 14px; }
+.card .addr { font-size: 15px; font-weight: 600; }
+.card .addr .coords { font-size: 12px; color: var(--muted); font-weight: 400; }
+.card .maplink { font-size: 12px; color: var(--accent-2); text-decoration: none; }
+.card .maplink:hover { text-decoration: underline; }
+
+/* Rozpad jistoty */
+.conf { display: flex; flex-direction: column; gap: 7px; }
+.conf .row { display: flex; align-items: center; gap: 9px; font-size: 12px; }
+.conf .row .name { width: 76px; color: var(--muted); }
+.conf .row .track { flex: 1; height: 7px; border-radius: 99px; background: rgba(255,255,255,.09); overflow: hidden; }
+.conf .row .track > span { display: block; height: 100%; border-radius: 99px; }
+.conf .row .pct { width: 38px; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Akce na karte */
+.actions { display: flex; flex-direction: column; gap: 10px; margin-top: 2px; }
+.actions .line { display: flex; gap: 10px; align-items: center; }
+.actions select { flex: 1; padding: 9px 12px; }
+.btn-act {
+  border: none; border-radius: var(--radius-s);
+  padding: 10px 14px; font-size: 13.5px; font-weight: 600;
+  cursor: pointer; transition: filter .15s, transform .1s;
+  color: #0c1424;
+}
+.btn-act:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.btn-confirm { background: var(--c-vhodne); }
+.btn-manual  { background: var(--panel-hi); color: var(--text); border: 1px solid var(--line); }
+.btn-done    { background: var(--accent); }
+.btn-undo    { background: transparent; color: var(--muted); border: 1px solid var(--line); }
+.btn-act.full { width: 100%; }
+
+.label-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,.1);
+  border-radius: 99px; padding: 4px 12px; font-size: 12.5px; font-weight: 700;
+}
+
+/* ---------- PRAZDNE STAVY ---------- */
+.empty {
+  padding: 80px 32px;
+  text-align: center;
+  color: var(--muted);
+}
+.empty .ico { font-size: 46px; margin-bottom: 14px; }
+.empty h2 { color: var(--text); margin: 0 0 8px; font-weight: 700; }
+
+.load-more { display: flex; justify-content: center; padding: 8px 32px 50px; }
+
+.footer { padding: 26px 32px 40px; color: var(--muted); font-size: 12.5px; border-top: 1px solid var(--line); }
+
+@media (max-width: 640px) {
+  .header, .hero, .tabs, .toolbar, .grid { padding-left: 18px; padding-right: 18px; }
+}

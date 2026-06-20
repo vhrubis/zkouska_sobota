@@ -1,0 +1,26 @@
+{
+  "name": "zkouska_sobota",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vhrubis/zkouska_sobota.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vhrubis/zkouska_sobota/issues"
+  },
+  "homepage": "https://github.com/vhrubis/zkouska_sobota#readme",
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-backend-wasm": "^4.22.0",
+    "pngjs": "^7.0.0"
+  }
+}

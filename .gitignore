@@ -1,0 +1,13 @@
+# Node
+node_modules/
+
+# Velka generovana data (regenerovatelna skripty)
+litvinov_strechy/
+data/budovy_litvinov.json
+data/adresy_litvinov.json
+data/adresni_body_litvinov.json
+data/stahovani_log.txt
+
+# OS
+Thumbs.db
+.DS_Store
