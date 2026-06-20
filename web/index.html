@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FVE-ÚK — Inventura střech</title>
+  <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="logo">FVE</div>
+      <div>
+        <div class="name">FVE-ÚK</div>
+        <div class="tag">Inventura solárního potenciálu střech · Ústecký kraj</div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="city-picker">
+      <label for="city">Město / obec:</label>
+      <select id="city"></select>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <h1>Litvínov</h1>
+    <div class="sub" id="geninfo">Načítám data…</div>
+    <div class="kpis" id="kpis"></div>
+    <div class="progress-wrap" id="progress"></div>
+  </section>
+
+  <nav class="tabs" id="tabs"></nav>
+
+  <div class="toolbar" id="toolbar">
+    <input class="grow" type="text" id="search" placeholder="🔎 Hledat podle adresy nebo ID budovy…">
+    <select id="sort">
+      <option value="conf_asc">Řadit: nejistější první</option>
+      <option value="conf_desc">Řadit: nejjistější první</option>
+      <option value="addr">Řadit: podle adresy</option>
+    </select>
+    <button class="btn" id="export">⬇ Export CSV</button>
+    <button class="btn ghost" id="reset">↺ Reset rozhodnutí</button>
+  </div>
+
+  <main id="main"></main>
+
+  <footer class="footer">
+    FVE-ÚK · prototyp pro Českou AI olympiádu 2026 · data: ČÚZK ortofoto + OpenStreetMap/RÚIAN ·
+    klasifikace: Teachable Machine. Výsledky AI jsou doporučení — finální rozhodnutí dělá člověk.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
